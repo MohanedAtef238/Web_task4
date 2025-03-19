@@ -1,4 +1,4 @@
 const sequelize = require('../database');
 const User = require('./User');
-
-module.exports = { sequelize, User };
+const Task = require('./task');
+module.exports = { sequelize, User, Task };
