@@ -39,7 +39,7 @@ router.post("/delete", async (req, res) => {
       const task = await Task.findOne({where: {Tname: T_name, userID: userr.userid},});
       if (!task) return res.status(404).json({ error: "Task not found" }); 
       const done = await task.destroy()
-      if (done) return res.status(201); // status code for a completed process if i remember correctly
+      if (done) return res.status(201).send("SUCCESSFUL AWOOOOOO 🐺"); // status code for a completed process if i remember correctly
     } catch (err) {
       res.status(500).json({ error: err.message }); // means something broke in our server so we'd have to investigate the endpoints and server status instead of examining code semantics
     }
@@ -55,7 +55,7 @@ router.patch("/update", async (req, res) => { // u can only update description o
       if (!task) return res.status(404).json({ error: "Task not found" }); 
       if (!update) return res.status(404).json({error : "please provide an updated description"})
       const done = await task.update({task_description : update})
-      if (done ) return res.status(201); // status code for a completed process if i remember correctly
+      if (done ) return res.status(201).send("SUCCESSFUL AWOOOOOO 🐺"); // status code for a completed process if i remember correctly
     } catch (err) {
       res.status(500).json({ error: err.message }); // means something broke in our server so we'd have to investigate the endpoints and server status instead of examining code semantics
     }
